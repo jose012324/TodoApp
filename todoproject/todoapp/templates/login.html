@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-3 mt-md-5">
+    <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-lg border-0">
+            <div class="card-header bg-primary text-white text-center py-3 py-md-4">
+                <h3 class="mb-0"><i class="fas fa-sign-in-alt me-2"></i>Login</h3>
+            </div>
+            <div class="card-body p-4 p-md-5">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    
+                    <div class="mb-4">
+                        <label for="username" class="form-label">Username</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <input type="text" class="form-control" id="username" name="username" required autofocus>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary py-2">
+                            <i class="fas fa-sign-in-alt me-2"></i>Login
+                        </button>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <p class="mb-0">Don't have an account? <a href="{% url 'register' %}" class="text-primary fw-bold">Register</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Animated Wave Background -->
+        <div class="position-fixed bottom-0 end-0 start-0 d-none d-md-block" style="z-index: -1; height: 200px; overflow: hidden;">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: var(--primary-color); opacity: 0.2;"></path>
+                <path d="M0.00,49.98 C149.99,150.00 271.49,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: var(--secondary-color); opacity: 0.2;"></path>
+            </svg>
+        </div>
+    </div>
+</div>
+{% endblock %}
